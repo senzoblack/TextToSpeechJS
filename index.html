@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <title>Javascript Text to Speech</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    /*CSS comes here*/
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input {
+        padding: 10px;
+        width: 300px;
+        border-radius: 5px;
+        border: 2px solid #bbb;
+    }
+    div {
+        margin: 10px 0;
+    }
+    button {
+        padding: 10px;
+        background-color: #6a67ce;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+</style>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md">
+                    <h2>Javascript Text To Speech</h2>
+                    <div>
+                        <input type="text" id="text-to-speech" placeholder="Enter text to speak..."/>
+                    </div>
+                    <div>
+                        <button type="button" onclick="textToAudio()">Speak</button>
+                    </div>
+                    <div>
+                        <small>
+                            <b>NOTE:</b>
+                            Enter text and click on speak button.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function textToAudio() {
+                let msg = document.getElementById("text-to-speech").value;
+                let speech = new SpeechSynthesisUtterance();
+                speech.lang = "en-US";
+                speech.text = msg;
+                speech.volume = 1;
+                speech.rate = 1;
+                speech.pitch = 1;
+    
+                window.speechSynthesis.speak(speech);
+            }
+        </script>
+    </body>
+</html>
